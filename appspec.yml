@@ -12,9 +12,9 @@ permissions:
       - directory
 hooks:
   AfterInstall:
-    - location: ./switch_directory.sh
+    - location: switch_directory.sh
       timeout: 300
       runas: deploy
   ApplicationStart:
-    - location: ./start_server.sh
+    - location: start_server.sh
       runas: deploy
