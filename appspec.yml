@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/reshotel
+permissions:
+  - object: /var/www/reshotel
+    owner: deploy
+    group: deploy
+    mode: 755
+    type:
+      - directory
+hooks:
+  AfterInstall:
+    - location: ./script/switch_directory.sh
+      timeout: 300
+      runas: deploy
+  ApplicationStart:
+    - location: ./script/start_server.sh
+      runas: deploy
